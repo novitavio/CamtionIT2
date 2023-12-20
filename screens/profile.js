@@ -9,7 +9,7 @@ const Profile = () => {
           Profile
         </Heading>
         <Image
-          source={require("../assets/logo.png")}
+          // source={require("../assets/logo.png")}
           resizeMode="contain"
           backgroundColor={"white"}
           w="150"
@@ -55,7 +55,7 @@ const Profile = () => {
         </VStack>
       </View>
       <Image
-          source={require("../assets/telkom.png")}
+          source={require("../assets/icon.png")}
           resizeMode="contain"
           w="90"
           h="90"

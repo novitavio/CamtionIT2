@@ -18,7 +18,7 @@ const Detail = ({ route }) => {
           <Image source={{uri: params.image}} alt="photo" w={"full"} h={'220'} mx={"auto"} px={"16"} borderBottomLeftRadius={40} borderBottomRightRadius={40}/>
           <View position={"absolute"} mx={150} my={170}>
             <Image
-              source={require("../assets/logo.png")}
+              // source={require("../assets/logo.png")}
               resizeMode="contain"
               w="90"
               h="90"
