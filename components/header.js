@@ -11,21 +11,20 @@ const Header = ({ title, withBack = false }) => {
   return (
     <SafeAreaView edges={['right', 'left', 'top']}>
       <StatusBar barStyle="dark" backgroundColor={"black"} />
-        <Box p={"4"} backgroundColor={"#9A1314"} shadow={"9"}>
+        <Box p={"4"} backgroundColor={"#042564"} shadow={"9"}>
             <HStack alignItems="center" justifyContent={"space-between"}>
               {!withBack ? (
                 <>
                   <HStack>
-                    <Text fontSize={"lg"} fontWeight={"bold"} color={"white"}>MahasiswaKu</Text>
+                  <Text fontSize={"lg"} fontWeight={"bold"} color={"white"}>CamtionIT</Text>
                   </HStack>
                   <HStack alignItems="center" justifyContent={"flex-end"}>
                     <Text fontSize={"lg"} color={"white"} mr={"2"}>Halo {title}!</Text>
                     <Image
-                      source={require("../assets/camtionIT.png")}
+                      source={require("../assets/profile.png")}
                       resizeMode="contain"
-                      backgroundColor={"white"}
-                      w="12"
-                      h="12"
+                      w="7"
+                      h="7"
                       alt="Profil Logo"
                       mr={"1"}
                       borderRadius={"full"}
