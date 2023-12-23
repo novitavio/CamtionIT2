@@ -1,71 +1,92 @@
-import { Heading, Center, View, Image, Text, VStack } from "native-base";
+import React from "react";
+import { Box, VStack, Image, Text, Pressable, HStack, ScrollView } from "native-base";
 import { Header } from "../components";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Profile = () => {
   return (
     <>
-      <View backgroundColor={"#9A1314"} w={"full"} h={"300"} borderBottomLeftRadius={"40"} borderBottomRightRadius={"40"}>
-        <Heading color={"white"} mx={"auto"} mt={"50"}>
-          Profile
-        </Heading>
-        <Image
-          // source={require("../assets/logo.png")}
-          resizeMode="contain"
-          backgroundColor={"white"}
-          w="150"
-          h="150"
-          alt="Profil Logo"
-          mx={"auto"}
-          my={"auto"}
-          borderRadius={"full"}
-        />
-      </View>
-      <View mx={8} mt={"5"}>
-        <VStack mb={"5"} >
-          <Text bold={true} fontSize={"20"}>
-            Nama :
-          </Text>
-          <Text fontSize={"20"} fontWeight={"light"}>
-            Novita Viomaito Simanjuntak
+      <Header title="Profile" />
+      
+      <ScrollView flex={1} bg={"white"} p={4}>
+        <VStack space={4} alignItems="center">
+          <Image
+            source={require("../assets/foto.png")}
+            alt="Profil Logo"
+            size={150}
+            borderRadius={75}
+          />
+          <Text fontSize={24} color={"black"} fontWeight="bold">
+            Novita Viomaito
           </Text>
         </VStack>
-        <VStack mb={"5"} >
-          <Text bold={true} fontSize={"20"}>
-            NIM :
-          </Text>
-          <Text fontSize={"20"} fontWeight={"light"}>
-            1204210020
-          </Text>
+
+        <VStack space={2} mt={6}>
+          <InfoBox label="Email " value=": izumiidesu@gmail.com" />
+          <InfoBox label="Tempat/Tanggal Lahir" value=": Jakarta, 01 Januari 2002" />
+          <InfoBox label="No HP" value=": 081234567890" />
         </VStack>
-        <VStack mb={"5"} >
-          <Text bold={true} fontSize={"20"}>
-            Program Studi :
-          </Text>
-          <Text fontSize={"20"} fontWeight={"light"}>
-            Sistem Informasi
-          </Text>
-        </VStack>
-        <VStack mb={"5"} >
-          <Text bold={true} fontSize={"20"}>
-            Email :
-          </Text>
-          <Text fontSize={"20"} fontWeight={"light"}>
-            izumiidesu@gmail.com
-          </Text>
-        </VStack>
-      </View>
-      <Image
-          source={require("../assets/icon.png")}
-          resizeMode="contain"
-          w="90"
-          h="90"
-          alt="Profil Logo"
-          mx={"auto"}
-          mt={"8"}
-          borderRadius={"full"}
-        />
+
+        <HStack justifyContent="center" mt={10} space={8}>
+          <Pressable onPress={() => handleEditProfile()}>
+            <ActionText icon="edit">Edit Profile</ActionText>
+          </Pressable>
+
+          <Pressable onPress={() => handleLogout()}>
+            <ActionText icon="sign-out-alt" bgColor="#FF0000" >Logout</ActionText>
+          </Pressable>
+        </HStack>
+      </ScrollView>
     </>
   );
+};
+
+const InfoBox = ({ label, value }) => {
+  return (
+    <Box
+      bg={"#042564"}
+      p={4}
+      borderRadius={8}
+      flexDirection="row"
+      justifyContent="space-between"
+      alignItems="center"
+      width="100%"
+    >
+      <Text color={"white"} fontSize={16} fontWeight="bold" flex={1}>
+        {label}
+      </Text>
+      <Text fontSize={16} color={"white"} flex={2}>
+        {value}
+      </Text>
+    </Box>
+  );
+};
+
+const ActionText = ({ children, icon ,bgColor}) => {
+  return (
+    <HStack
+      bg={bgColor || "#042564"}
+      p={4}
+      borderRadius={8}
+      space={2}
+      alignItems="center"
+    >
+      {icon && <FontAwesome5 name={icon} size={16} color="white" />}
+      <Text color={"white"} fontSize={16} fontWeight="bold">
+        {children}
+      </Text>
+    </HStack>
+  );
+};
+
+const handleEditProfile = () => {
+  // Implementasi fungsi edit profile
+  console.log("Edit Profile clicked");
+};
+
+const handleLogout = () => {
+  // Implementasi fungsi logout
+  console.log("Logout clicked");
 };
 
 export default Profile;
