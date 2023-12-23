@@ -59,12 +59,11 @@ const Form = () => {
             />
           </Box>
           <Center>
-            <Button onPress={( 
-            ) => navigation.navigate("Home")} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
-              <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}>
-                Sign In
-              </Text>
-            </Button>
+          <Button onPress={() => navigation.navigate("Home")} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
+            <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}>
+              Sign In
+             </Text>
+          </Button>
           </Center>
         </View>
       </Center>
