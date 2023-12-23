@@ -31,7 +31,7 @@ const Home = () => {
           <Box mb={"6"} mt={"6"}>
             <VStack>
               <Heading fontSize={"26"} color={"black"}>
-                Ayo Temukan jurusan
+                Ayo Temukan Jurusan
               </Heading>
               <Heading fontSize={"26"} color={"black"}>
                 Impianmu!

@@ -2,17 +2,20 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { NativeBaseProvider, Text } from "native-base";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import Login from "./screens/login";
 import Signup from "./screens/signup";
 import Cover from "./screens/cover";
 import Choose from "./screens/choose";
 import Home from "./screens/home";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Jurusan from './screens/jurusan';
+
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
 const noHead = { headerShown: false };
 
- const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
@@ -63,7 +66,7 @@ function MyTabs() {
       })}
     >
       <Tab.Screen name="Home" component={Home} options={noHead} />
-      <Tab.Screen name="Jurusan" component={Home} options={noHead} />
+      <Tab.Screen name="Jurusan" component={Jurusan} options={noHead} />
       <Tab.Screen name="Konsultasi" component={Home} options={noHead} />
       <Tab.Screen name="Profile" component={Home} options={noHead} />
     </Tab.Navigator>
@@ -81,7 +84,6 @@ const App = () => {
           <Stack.Screen name="Choose" component={Choose} options={noHead} />
           <Stack.Screen name="Signup" component={Signup} options={noHead} />
           <Stack.Screen name="Login" component={Login} options={noHead} />
-          <Stack.Screen name="Home" component={Home} options={noHead} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
