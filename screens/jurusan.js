@@ -3,80 +3,99 @@ import { Image, ScrollView } from 'react-native';
 import { NativeBaseProvider, Box, Text } from 'native-base';
 import Header from '../components/header';
 
-const Separator = () => (
-  <Box height={10} backgroundColor="white" marginBottom={5} />
+
+const JurusanCard = ({ jurusan }) => (
+  <Box
+    marginBottom={5}
+    backgroundColor="#042564" 
+    borderRadius={8}
+    padding={4}
+    shadow={2}
+  >
+    <Box flexDirection="row" alignItems="center">
+      <Image
+        source={jurusan.gambar}
+        style={{
+          width: 120, 
+          height: 120, 
+          borderRadius: 8,
+          marginRight: 10,
+        }}
+      />
+      <Box flex={1}>
+        <Text fontSize={16} fontWeight="bold"    marginBottom={2} color="white">
+          {jurusan.nama}
+        </Text>
+        <Text fontSize={11} color="white" textAlign="justify"  marginBottom={2}>
+          {jurusan.deskripsi}
+        </Text>
+      </Box>
+    </Box>
+  </Box>
 );
 
 const Jurusan = () => {
   const dataJurusan = [
     {
       nama: 'Sistem Informasi',
-      deskripsi: 'Jurusan Sistem Informasi fokus pada integrasi teknologi informasi dalam konteks bisnis dan organisasi. Mahasiswa mempelajari pengembangan sistem informasi untuk mendukung kebutuhan perusahaan, termasuk analisis kebutuhan, desain, dan implementasi solusi berbasis IT.',
-    //   gambar: require('../assets/si.jpg'),
+      deskripsi: 'Memfokuskan pada pengembangan sistem informasi dan analisis bisnis. Mahasiswa dapat menjadi analis bisnis atau pengembang perangkat lunak setelah lulus.',
+      gambar: require('../assets/si.png'),
+    },
+    {
+      nama: 'Rekayasa Perangkat Lunak',
+      deskripsi: 'Menekankan pengembangan perangkat lunak, melibatkan desain, pengujian, dan manajemen proyek. Mahasiswa siap menjadi pengembang perangkat lunak atau engineer TI.',
+      gambar: require('../assets/rpl.png'),
     },
     {
       nama: 'Teknik Informatika',
-      deskripsi: 'Teknik Informatika mencakup desain, pengembangan, dan implementasi perangkat lunak dan perangkat keras. Mahasiswa memahami prinsip dasar teknologi informasi, algoritma, pemrograman, dan arsitektur komputer.',
-    //   gambar: require('../assets/teknologi-informasi.png'),
+      deskripsi: 'Fokus pada pengembangan perangkat lunak, jaringan, dan sistem informasi. Mahasiswa mempelajari teknologi untuk karir sebagai pengembang perangkat lunak atau ahli jaringan',
+      gambar: require('../assets/teknik.png'),
     },
     {
       nama: 'Teknologi Informasi',
-      deskripsi: 'Jurusan ini menggabungkan aspek teknologi informasi dengan fokus pada aplikasinya dalam dunia bisnis. Mahasiswa mempelajari penerapan praktis teknologi informasi untuk mendukung operasi bisnis dan pengambilan keputusan.',
-    //   gambar: require('../assets/teknik-informatika.png'),
-    },
-    {
-      nama: 'Rekaya Perangkat Lunak',
-      deskripsi: 'Rekayasa Perangkat Lunak berkaitan dengan pengembangan perangkat lunak dengan pendekatan sistematis dan terukur. Mahasiswa memahami siklus hidup pengembangan perangkat lunak, dari analisis kebutuhan hingga pemeliharaan.',
-    //   gambar: require('../assets/rekayasa-perangkat-lunak.png'),
+      deskripsi: 'Fokus pada penerapan teknologi dalam bisnis, melibatkan manajemen sistem dan keamanan informasi untuk mempersiapkan mahasiswa sebagai profesional TI.      ',
+      gambar: require('../assets/teknologi.png'),
     },
     {
       nama: 'Sains Data',
-      deskripsi: 'Sains Data mencakup analisis data besar untuk mengidentifikasi tren, pola, dan wawasan yang dapat mendukung pengambilan keputusan. Mahasiswa mempelajari statistika, pembelajaran mesin, dan teknik analisis data.',
-    //   gambar: require('../assets/sd.png')
+      deskripsi: 'Memanfaatkan analisis data dan pembelajaran mesin untuk pengambilan keputusan. Mahasiswa dilatih dalam statistik dan pemrograman untuk menjadi ahli analisis data.',
+      gambar: require('../assets/sd.png')
     },
     {
       nama: 'Bisnis Digital',
-      deskripsi: 'Jurusan Bisnis Digital membahas konsep dan aplikasi transformasi digital dalam konteks bisnis. Mahasiswa memahami penerapan teknologi untuk meningkatkan efisiensi dan menciptakan nilai bisnis.',
-    //   gambar: require('../assets/db.png'),
+      deskripsi: 'Menerapkan teknologi digital untuk operasi dan pemasaran bisnis. Mahasiswa mempelajari strategi online dan analisis data.',
+      gambar: require('../assets/bd.png'),
+    },
+    {
+      nama: 'Teknik Telekomunikasi',
+      deskripsi: 'Fokus pada desain dan manajemen sistem komunikasi, termasuk jaringan dan transmisi data. Mahasiswa mempersiapkan diri untuk karir di bidang teknologi telekomunikasi.',
+      gambar: require('../assets/tt.png'),
+    },
+    {
+      nama: 'Teknik Komputer',
+      deskripsi: 'Fokus pada perancangan dan pemeliharaan perangkat keras komputer. Mahasiswa mempelajari arsitektur dan pemrograman untuk karir di pengembangan perangkat keras atau teknisi komputer.',
+      gambar: require('../assets/tk.png'),
+    },
+    {
+      nama: 'Sistem Komputer',
+      deskripsi: 'Desain, pengembangan, dan pemeliharaan perangkat keras dan perangkat lunak. Mahasiswa siap karir di pengembangan teknologi atau administrasi sistem.',
+      gambar: require('../assets/sk.png'),
+    },
+    {
+      nama: 'Teknik Elektro',
+      deskripsi: 'Fokus pada pengembangan, desain, dan pemeliharaan perangkat elektronik. Mahasiswa siap untuk karir di desain, instalasi, atau pemrograman perangkat elektronik.',
+      gambar: require('../assets/te.png'),
     },
   ];
 
   return (
     <NativeBaseProvider>
-      <Box flex={1} px={1}>
-        <Header />
+      <Box flex={1} px={1} backgroundColor="white" marginTop={-2}> 
+        <Header marginTop={-2} marginBottom={5} />
         <ScrollView>
-          <Box
-            backgroundColor="#add8e6"
-            padding={1}
-            marginLeft={-2}
-            marginRight={-2}
-          >
-            {dataJurusan.map((jurusan, index) => (
-              <Box key={index}>
-                <Box flexDirection="row" alignItems="center" marginBottom={5}>
-                  <Image
-                    source={jurusan.gambar}
-                    style={{
-                      width: 100,
-                      height: 100, 
-                      borderRadius: 8,
-                      marginRight: 16,
-                    }}
-                  />
-                  <Box flex={1} justifyContent="space-between">
-                    <Text fontSize={18} fontWeight="bold" marginBottom={6}>
-                      {jurusan.nama}
-                    </Text>
-                    <Text fontSize={14} color="brown">
-                      {jurusan.deskripsi}
-                    </Text>
-                  </Box>
-                </Box>
-                {index !== dataJurusan.length - 1 && <Separator />}
-              </Box>
-            ))}
-          </Box>
+          {dataJurusan.map((jurusan, index) => (
+            <JurusanCard key={index} jurusan={jurusan} />
+          ))}
         </ScrollView>
       </Box>
     </NativeBaseProvider>
