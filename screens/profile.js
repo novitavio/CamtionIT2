@@ -1,13 +1,28 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Box, VStack, Image, Text, Pressable, HStack, ScrollView } from "native-base";
 import { Header } from "../components";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const Profile = () => {
+  const navigation = useNavigation();
+
+  const handleEditProfile = () => {
+    navigation.navigate("EditProfile");
+  };
+
+  const handleLogout = () => {
+    // Implementasi fungsi logout
+    console.log("Logout clicked");
+
+    // Navigate to the login screen after successful logout
+    navigation.replace("Login");
+  };
+
   return (
     <>
       <Header title="Profile" />
-      
+
       <ScrollView flex={1} bg={"white"} p={4}>
         <VStack space={4} alignItems="center">
           <Image
@@ -33,7 +48,9 @@ const Profile = () => {
           </Pressable>
 
           <Pressable onPress={() => handleLogout()}>
-            <ActionText icon="sign-out-alt" bgColor="#FF0000" >Logout</ActionText>
+            <ActionText icon="sign-out-alt" bgColor="#FF0000">
+              Logout
+            </ActionText>
           </Pressable>
         </HStack>
       </ScrollView>
@@ -62,31 +79,15 @@ const InfoBox = ({ label, value }) => {
   );
 };
 
-const ActionText = ({ children, icon ,bgColor}) => {
+const ActionText = ({ children, icon, bgColor }) => {
   return (
-    <HStack
-      bg={bgColor || "#042564"}
-      p={4}
-      borderRadius={8}
-      space={2}
-      alignItems="center"
-    >
+    <HStack bg={bgColor || "#042564"} p={4} borderRadius={8} space={2} alignItems="center">
       {icon && <FontAwesome5 name={icon} size={16} color="white" />}
       <Text color={"white"} fontSize={16} fontWeight="bold">
         {children}
       </Text>
     </HStack>
   );
-};
-
-const handleEditProfile = () => {
-  // Implementasi fungsi edit profile
-  console.log("Edit Profile clicked");
-};
-
-const handleLogout = () => {
-  // Implementasi fungsi logout
-  console.log("Logout clicked");
 };
 
 export default Profile;
