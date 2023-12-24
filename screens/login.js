@@ -7,6 +7,21 @@ const Form = () => {
   const [show, setShow] = React.useState(false);
   const navigation = useNavigation();
 
+  const handleLogin = () => {
+    // Perform login logic here
+
+    // Navigate to the main screen (tab screen) after successful login
+    navigation.navigate("Home");
+  };
+
+  const handleLogout = () => {
+    // Perform logout logic here
+    console.log("Logout clicked");
+
+    // Navigate to the login screen after successful logout
+    navigation.navigate("Login");
+  };
+
   return (
     <>
       <Image
@@ -59,13 +74,20 @@ const Form = () => {
             />
           </Box>
           <Center>
-          <Button onPress={() => navigation.navigate("Home")} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
-            <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}>
-              Sign In
-             </Text>
-          </Button>
+            <Button onPress={handleLogin} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
+              <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}>
+                Sign In
+              </Text>
+            </Button>
           </Center>
         </View>
+        <Center>
+          <Pressable onPress={handleLogout}>
+            <Text color="#0E4BBE" fontSize={16} fontWeight="bold" mt={4}>
+              Logout
+            </Text>
+          </Pressable>
+        </Center>
       </Center>
     </>
   );
