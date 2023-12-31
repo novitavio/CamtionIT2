@@ -60,9 +60,9 @@ const MainStackNavigator = () => (
         borderTopWidth: 0,
         backgroundColor: '#042564',
         elevation: 0,
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-        marginHorizontal: 20,
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
+        marginHorizontal: 0,
       },
       tabBarLabel: ({ children, color, focused }) => (
         <Text color={focused ? 'white' : color} mb={2}>

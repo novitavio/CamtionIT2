@@ -14,15 +14,11 @@ import { Header } from "../components";
 
 const Home = () => {
   const navigation = useNavigation();
-  const renderitem = ({ item }) => {
-    return (
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={() => navigation.navigate("Detail", { item: item })}
-      ></TouchableOpacity>
-    );
-  };
 
+  const navigateToJurusan = (jurusanName) => {
+    // You can navigate to the "Jurusan" screen here with the selected jurusanName
+    navigation.navigate("Jurusan", { jurusan: jurusanName });
+  };
   return (
     <>
       <Header title={"Izumi"} />
@@ -47,7 +43,7 @@ const Home = () => {
             />
           </Box>
 
-          <Image source={require("../assets/coverhome.png")} />
+          <Image source={require("../assets/coverhome.png")} borderRadius={"20"}/>
 
           <HStack>
             <Text fontSize={20} mt={"4"} mb={"2"}>
@@ -60,6 +56,7 @@ const Home = () => {
         
         </View>
 
+        <TouchableOpacity onPress={() => navigateToJurusan("Sistem Informasi")}></TouchableOpacity>
         <View mx={"10"}>
           <View
             style={{
@@ -79,11 +76,14 @@ const Home = () => {
                 Sistem Informasi
               </Text>
             </View>
+            
+            
             <View style={{ marginRight: 10 }}>
               <Image
                 source={require("../assets/rekayasa.png")}
                 height={90}
                 width={150}
+              
               />
               <VStack space={0} alignItems="flex-start" width={150}>
                 <Text bold={true} textAlign={"justify"}>
@@ -132,6 +132,7 @@ const Home = () => {
               alignItems: "center",
             }}
           >
+            
             <View style={{ marginRight: 20 }}>
               <Image
                 source={require("../assets/teknik.png")}
@@ -142,6 +143,7 @@ const Home = () => {
                 Teknik Industri
               </Text>
             </View>
+            
             <View style={{ marginRight: 10 }}>
               <Image
                 source={require("../assets/teknologi.png")}
@@ -152,9 +154,11 @@ const Home = () => {
                 Ilmu Komputer
               </Text>
             </View>
+            <TouchableOpacity/>
           </View>
         </View>
       </ScrollView>
+      
     </>
   );
 };
