@@ -15,9 +15,9 @@ import { Header } from "../components";
 const Home = () => {
   const navigation = useNavigation();
 
-  const navigateToJurusan = (jurusanName) => {
+  const navigateToJurusan = (JurusanCard) => {
     // You can navigate to the "Jurusan" screen here with the selected jurusanName
-    navigation.navigate("Jurusan", { jurusan: jurusanName });
+    navigation.navigate("Jurusan", { jurusan: JurusanCard });
   };
   return (
     <>
@@ -67,6 +67,7 @@ const Home = () => {
             }}
           >
             <View style={{ marginRight: 20 }}>
+            <TouchableOpacity onPress={navigateToJurusan}>
               <Image
                 source={require("../assets/image1.png")}
                 height={90}
@@ -75,10 +76,13 @@ const Home = () => {
               <Text bold={true} paddingBottom={"2"} textAlign={"justiify"}>
                 Sistem Informasi
               </Text>
+              </TouchableOpacity>
             </View>
             
             
+            
             <View style={{ marginRight: 10 }}>
+            <TouchableOpacity onPress={navigateToJurusan}>
               <Image
                 source={require("../assets/rekayasa.png")}
                 height={90}
@@ -93,8 +97,11 @@ const Home = () => {
                   Lunak
                 </Text>
               </VStack>
+              </TouchableOpacity>
             </View>
+            
           </View>
+          
           <View
             style={{
               marginHorizontal: 10,
@@ -104,6 +111,7 @@ const Home = () => {
             }}
           >
             <View style={{ marginRight: 20 }}>
+            <TouchableOpacity onPress={navigateToJurusan}>
               <Image
                 source={require("../assets/teknik.png")}
                 height={90}
@@ -112,8 +120,11 @@ const Home = () => {
               <Text bold={true} paddingBottom={"2"} textAlign={"justiify"}>
                 Teknik Informatika
               </Text>
+              </TouchableOpacity>
             </View>
+            
             <View style={{ marginRight: 10 }}>
+            <TouchableOpacity onPress={navigateToJurusan}>
               <Image
                 source={require("../assets/teknologi.png")}
                 height={90}
@@ -122,6 +133,7 @@ const Home = () => {
               <Text bold={true} paddingBottom={"2"} textAlign={"justiify"}>
                 Teknologi Informasi
               </Text>
+              </TouchableOpacity>
             </View>
           </View>
           <View
