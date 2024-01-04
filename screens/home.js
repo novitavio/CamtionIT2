@@ -146,6 +146,7 @@ const Home = () => {
           >
             
             <View style={{ marginRight: 20 }}>
+            <TouchableOpacity onPress={navigateToJurusan}>
               <Image
                 source={require("../assets/teknik.png")}
                 height={90}
@@ -154,22 +155,25 @@ const Home = () => {
               <Text bold={true} paddingBottom={"2"} textAlign={"justiify"}>
                 Teknik Industri
               </Text>
+              </TouchableOpacity>
             </View>
             
             <View style={{ marginRight: 10 }}>
+            <TouchableOpacity onPress={navigateToJurusan}>
               <Image
-                source={require("../assets/teknologi.png")}
+                source={require("../assets/tk.png")}
                 height={90}
                 width={150}
               />
               <Text bold={true} paddingBottom={"2"} textAlign={"justiify"}>
-                Ilmu Komputer
+                Teknik Komputer
               </Text>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity/>
           </View>
         </View>
       </ScrollView>
+      
       
     </>
   );

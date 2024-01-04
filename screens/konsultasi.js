@@ -11,14 +11,30 @@ const Konsultasi = () => {
 		  { id: 1, link1: "https://wa.me/083192973492", content1: "Whatshap 1", link2: "https://wa.me/085156644103", content2: "Whatshap 2", image: require("../assets/profile.png") },
 		  { id: 2, link1: "https://wa.me/082231704029", content1: "Whatshap 1", link2: "https://wa.me/083192973492", content2: "Whatshap 2", image: require("../assets/profile.png") },
 		],
-		"Teknik Sipil": [
+		"Rekayasa Perangkat Lunak": [
 		  { id: 3, link1: "https://www.github.com", content1: "Whatshap 1", link2: "https://www.figma.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
 		  { id: 4, link1: "https://www.facebook.com", content1: "Whatshap 1", link2: "https://www.linkedin.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
 		],
-		"Teknik Elektronika": [
+		"Teknik Informatika": [
 		  { id: 5, link1: "https://www.github.com", content1: "Whatshap 1", link2: "https://www.figma.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
 		  { id: 6, link1: "https://www.facebook.com", content1: "Whatshap 1", link2: "https://www.linkedin.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
 		],
+		"Teknologi Informasi": [
+			{ id: 7, link1: "https://www.github.com", content1: "Whatshap 1", link2: "https://www.figma.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
+			{ id: 8, link1: "https://www.facebook.com", content1: "Whatshap 1", link2: "https://www.linkedin.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
+		  ],
+		  "Teknik Industri": [
+			{ id: 9, link1: "https://www.github.com", content1: "Whatshap 1", link2: "https://www.figma.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
+			{ id: 10, link1: "https://www.facebook.com", content1: "Whatshap 1", link2: "https://www.linkedin.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
+		  ],
+		  "Ilmu Komputer": [
+			{ id: 11, link1: "https://www.github.com", content1: "Whatshap 1", link2: "https://www.figma.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
+			{ id: 12, link1: "https://www.facebook.com", content1: "Whatshap 1", link2: "https://www.linkedin.com", content2: "Whatshap 2", image: require("../assets/profile.png") },
+		  ],
+		  
+
+		
+		
 		
 		
 	  };
@@ -44,7 +60,7 @@ const Konsultasi = () => {
 						</Text>
 
 						{/* Search Bar */}
-						<Input placeholder="Search" variant="filled" borderRadius={8} flex={1} py={2} px={4} fontSize={16} borderWidth={2} borderColor="gray.300" InputLeftElement={<Icon size="sm" ml={2} color="gray.400" as={<Ionicons name="search" />} />} />
+						<Input placeholder="Search" variant="filled" borderRadius={20} flex={1} py={2} px={4} fontSize={16} borderWidth={2} borderColor="gray.300" InputLeftElement={<Icon size="sm" ml={2} color="gray.400" as={<Ionicons name="search" />} />} />
 					</HStack>
 
 					<VStack space={2} marginLeft={1}>
