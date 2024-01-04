@@ -57,7 +57,7 @@ const Home = () => {
         </View>
 
         <TouchableOpacity onPress={() => navigateToJurusan("Sistem Informasi")}></TouchableOpacity>
-        <View mx={"10"}>
+        <View mx={"3"}>
           <View
             style={{
               marginHorizontal: 10,
