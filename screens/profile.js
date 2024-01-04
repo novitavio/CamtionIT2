@@ -4,6 +4,7 @@ import { Box, VStack, Image, Text, Pressable, HStack, ScrollView } from "native-
 import { Header } from "../components";
 import { FontAwesome5 } from "@expo/vector-icons";
 
+
 const Profile = () => {
   const navigation = useNavigation();
 

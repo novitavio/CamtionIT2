@@ -13,6 +13,7 @@ import Jurusan from "./screens/jurusan";
 import Konsultasi from "./screens/konsultasi";
 import Profile from "./screens/profile";
 import EditProfile from "./screens/editprofile";
+import JurusanDetail from "./screens/jurusan-detail"
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,7 +25,7 @@ const AuthStack = () => (
     <Stack.Screen name="Cover" component={Cover} options={noHead} />
     <Stack.Screen name="Signup" component={Signup} options={noHead} />
     <Stack.Screen name="Login" component={Login} options={noHead} />
-  </Stack.Navigator>
+  </Stack.Navigator> 
 );
 
 const MainStackNavigator = () => (
@@ -62,7 +63,7 @@ const MainStackNavigator = () => (
         elevation: 0,
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
-        marginHorizontal: 20,
+        // marginHorizontal: 5,
       },
       tabBarLabel: ({ children, color, focused }) => (
         <Text color={focused ? 'white' : color} mb={2}>
@@ -86,12 +87,15 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           {!isLoggedIn ? (
+      
             <Stack.Screen name="Auth" component={AuthStack} options={noHead} />
           ) : (
             <Stack.Screen name="MainStack" component={MainStackNavigator} options={noHead} />
           )}
           <Stack.Screen name="Choose" component={Choose} options={noHead} />
           <Stack.Screen name="EditProfile" component={EditProfile} options={noHead} />
+          <Stack.Screen name="Detail Jurusan" component={JurusanDetail} options={noHead} />
+          <Stack.Screen name="Jurusan" component={Jurusan} options={noHead} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
