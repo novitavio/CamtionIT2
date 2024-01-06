@@ -5,6 +5,7 @@ import { Header } from "../components";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 
+
 const Profile = () => {
   const navigation = useNavigation();
 
@@ -22,6 +23,7 @@ const Profile = () => {
 
   return (
     <>
+    
       <Header title="Profile" />
 
       <ScrollView flex={1} bg={"white"} p={4}>
@@ -45,10 +47,10 @@ const Profile = () => {
 
         <HStack justifyContent="center" mt={10} space={8}>
           <Pressable onPress={() => handleEditProfile()}>
-            <ActionText icon="edit">Edit Profile</ActionText>
+            <ActionText icon="edit" bgColor="#008000">Edit Profile</ActionText>
           </Pressable>
 
-          <Pressable onPress={() => handleLogout()}>
+          <Pressable onPress={() => navigation.goBack("Cover")}>
             <ActionText icon="sign-out-alt" bgColor="#FF0000">
               Logout
             </ActionText>
