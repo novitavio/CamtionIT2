@@ -13,24 +13,32 @@ import Jurusan from "./screens/jurusan";
 import Konsultasi from "./screens/konsultasi";
 import Profile from "./screens/profile";
 import EditProfile from "./screens/editprofile";
-import JurusanDetail from "./screens/jurusan-detail"
+import JurusanDetail from "./screens/jurusan-detail";
 
+// Navigator Declaration
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const noHead = { headerShown: false };
 
-const AuthStack = () => (
+const MainStackNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen name="Cover" component={Cover} options={noHead} />
+    <Stack.Screen name="Choose" component={Choose} options={noHead} />
     <Stack.Screen name="Signup" component={Signup} options={noHead} />
     <Stack.Screen name="Login" component={Login} options={noHead} />
-  </Stack.Navigator> 
+    <Stack.Screen name="Home" component={Home} options={noHead} />
+    <Stack.Screen name="Jurusan" component={Jurusan} options={noHead} />
+    <Stack.Screen name="Detail Jurusan" component={JurusanDetail} options={noHead} />
+    <Stack.Screen name="EditProfile" component={EditProfile} options={noHead}/>
+    <Stack.Screen name="Profile" component={Profile} options={noHead}/>
+    <Stack.Screen name="Tabs" component={Tabs} options={noHead} />
+  </Stack.Navigator>
 );
 
-const MainStackNavigator = () => (
+const Tabs = () => (
   <Tab.Navigator
-    screenOptions={({ route }) => ({
+    screenOptions={({ route, navigation }) => ({
       tabBarIcon: ({ focused, color }) => {
         let iconName;
         switch (route.name) {
@@ -63,13 +71,22 @@ const MainStackNavigator = () => (
         elevation: 0,
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
-        // marginHorizontal: 5,
       },
       tabBarLabel: ({ children, color, focused }) => (
         <Text color={focused ? 'white' : color} mb={2}>
           {children}
         </Text>
       ),
+      tabBarPress: ({ route }) => {
+        // Handle custom navigation logic if needed
+        if (route.name === 'Home') {
+          // Navigate to the Stack Navigator containing Home
+          navigation.navigate('Home');
+        } else {
+          // Handle other tab navigations
+          navigation.navigate(route.name);
+        }
+      },
     })}
   >
     <Tab.Screen name="Home" component={Home} options={noHead} />
@@ -80,23 +97,10 @@ const MainStackNavigator = () => (
 );
 
 const App = () => {
-  const isLoggedIn = true; // Update this based on the user's login status
-
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <Stack.Navigator>
-          {!isLoggedIn ? (
-      
-            <Stack.Screen name="Auth" component={AuthStack} options={noHead} />
-          ) : (
-            <Stack.Screen name="MainStack" component={MainStackNavigator} options={noHead} />
-          )}
-          <Stack.Screen name="Choose" component={Choose} options={noHead} />
-          <Stack.Screen name="EditProfile" component={EditProfile} options={noHead} />
-          <Stack.Screen name="Detail Jurusan" component={JurusanDetail} options={noHead} />
-          <Stack.Screen name="Jurusan" component={Jurusan} options={noHead} />
-        </Stack.Navigator>
+        <MainStackNavigator />
       </NavigationContainer>
     </NativeBaseProvider>
   );

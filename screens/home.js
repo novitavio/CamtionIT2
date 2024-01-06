@@ -18,6 +18,10 @@ const Home = () => {
   const navigateToJurusan = (JurusanCard) => {
     // You can navigate to the "Jurusan" screen here with the selected jurusanName
     navigation.navigate("Jurusan", { jurusan: JurusanCard });
+    const handleButtonPress = () => {
+      // Menggunakan 'Tabs' sebagai nama layar yang benar
+      navigation.navigate("Tabs");
+    };
   };
   return (
     <>
@@ -37,9 +41,11 @@ const Home = () => {
           <Box mb={"6"}>
             <Input
               mx="auto"
-              placeholder="mau cari apa?"
+              placeholder="Search"
               borderRadius={"20"}
-              w="100%"
+              mr="50%"
+              w="70%"
+              padding="3"
             />
           </Box>
 

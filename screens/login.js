@@ -7,20 +7,20 @@ const Form = () => {
   const [show, setShow] = React.useState(false);
   const navigation = useNavigation();
 
-  const handleLogin = () => {
-    // Perform login logic here
+  // const handleLogin = () => {
+  //   Perform login logic here
 
-    // Navigate to the main screen (tab screen) after successful login
-    navigation.navigate("Home");
-  };
+  //   Navigate to the main screen (tab screen) after successful login
+  //   navigation.navigate('Auth', { screen: 'AfterLoginScreen' });
+  // };
 
-  const handleLogout = () => {
-    // Perform logout logic here
-    console.log("Logout clicked");
+  // const handleLogout = () => {r
+  //   // Perform logout logic here
+  //   console.log("Logout clicked");
 
-    // Navigate to the login screen after successful logout
-    navigation.navigate("Login");
-  };
+  //   // Navigate to the login screen after successful logout
+  //   navigation.navigate("Login");
+  // };
 
   return (
     <>
@@ -40,7 +40,7 @@ const Form = () => {
           </Center>
         </View>
         <View mx={"10"} mt={"4"} my={"auto"} p={4} bgOpacity={0.8} bg={"white"} borderRadius={10} shadow={5}>
-          <Box mb={"5"} textAlign="center">
+          <Box mb={"5"} textAlign="center" >
             <Text bold={true} fontSize={18} textAlign={'center'}>
               Sign In
             </Text>
@@ -74,15 +74,15 @@ const Form = () => {
             />
           </Box>
           <Center>
-            <Button onPress={handleLogin} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
-              <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}>
+            <Button w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"} onPress={() => navigation.navigate("Home")}>
+              <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}  >
                 Sign In
               </Text>
             </Button>
           </Center>
         </View>
         <Center>
-          <Pressable onPress={handleLogout}>
+          <Pressable >
             <Text color="#0E4BBE" fontSize={16} fontWeight="bold" mt={4}>
               Logout
             </Text>
