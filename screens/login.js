@@ -42,7 +42,7 @@ const Form = () => {
         <View mx={"10"} mt={"4"} my={"auto"} p={4} bgOpacity={0.8} bg={"white"} borderRadius={10} shadow={5}>
           <Box mb={"5"} textAlign="center" >
             <Text bold={true} fontSize={18} textAlign={'center'}>
-              Sign In
+              Login
             </Text>
             <Text fontWeight={"light"} fontSize={15} mb={"1"}>
               Enter your registered email address and password to log in
@@ -50,13 +50,13 @@ const Form = () => {
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
-              Email:
+              Username 
             </Text>
             <Input placeholder="Enter your email" borderRadius={"5"} w="100%" borderWidth={1.5} borderColor={"#0E4BBE"} />
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
-              Password:
+              Password
             </Text>
             <Input
               borderWidth={1.5}
@@ -76,7 +76,7 @@ const Form = () => {
           <Center>
             <Button w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"} onPress={() => navigation.navigate("Home")}>
               <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}  >
-                Sign In
+                Login
               </Text>
             </Button>
           </Center>

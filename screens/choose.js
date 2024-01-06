@@ -15,7 +15,7 @@ const Form = () => {
         <Center mb={'25'}>
           <Image source={require('../assets/workspace.png')} alt="photo" w={'180'} h={'180'} mb={'2'} />
           <Text bold={true} fontSize={20} color={'#0E4BBE'}>
-            Sign In to CamtionIT
+            Welcome to CamtionIT
           </Text>
         </Center>
         <Center>
@@ -30,7 +30,7 @@ const Form = () => {
             alignItems={'center'} 
           >
             <Text color={'white'} bold={true} fontSize={14}>
-              Sign In
+              Login
             </Text>
           </Button>
           <Text fontWeight={'light'} mt={'3'}>

@@ -35,25 +35,25 @@ const Form = () => {
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
-              Full name:
+              Full name
             </Text>
             <Input placeholder="tulis nama kamu" borderRadius={"5"} w="100%" borderWidth={1.5} borderColor={"#0E4BBE"} />
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
-              Username:
+              Username
             </Text>
             <Input placeholder="tulis nama kamu" borderRadius={"5"} w="100%" borderWidth={1.5} borderColor={"#0E4BBE"} />
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
-              Email:
+              Email
             </Text>
             <Input placeholder="tulis nama kamu" borderRadius={"5"} w="100%" borderWidth={1.5} borderColor={"#0E4BBE"} />
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
-              Password:
+              Password
             </Text>
             <Input
               borderWidth={1.5}
@@ -73,7 +73,7 @@ const Form = () => {
           <Center>
             <Button onPress={() => navigation.navigate("Home")} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
               <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}>
-                Sign Up
+                Submit
               </Text>
             </Button>
           </Center>
