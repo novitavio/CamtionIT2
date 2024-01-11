@@ -1,26 +1,58 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Box, VStack, Image, Text, Pressable, HStack, ScrollView } from "native-base";
 import { Header } from "../components";
 import { FontAwesome5 } from "@expo/vector-icons";
-
-
+import { clearStorage,getData } from "../utils";
+import FIREBASE from "../config/FIREBASE";
+import { getDataUser } from "../actions/AuthAction";
 
 const Profile = () => {
   const navigation = useNavigation();
-
+  const [profile, setProfile] = useState({});
   const handleEditProfile = () => {
     navigation.navigate("EditProfile");
   };
 
-  const handleLogout = () => {
-    // Implementasi fungsi logout
-    console.log("Logout clicked");
-
-    // Navigate to the login screen after successful logout
-    navigation.replace("Login");
+  const getUserData = () => {
+    getData("user").then((res) => {
+      const data = res;
+      if (data) {
+        console.log("isi data", data);
+        setProfile(data);
+      } else {
+        // navigation.replace('Login');
+      }
+    });
   };
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      getUserData();
+    });
+  
+    return () => {
+      unsubscribe();
+    };
+  }, [navigation]);
+
+  const onSubmit = (profile) => {
+    if (profile) {
+      FIREBASE.auth()
+        .signOut()
+        .then(() => {
+          // Sign-out successful.
+          clearStorage();
+          navigation.navigate("Choose");
+        })
+        .catch((error) => {
+          // An error happened.
+          alert(error);
+        });
+    } else {
+      navigation.navigate("Login");
+    }
+  };
   return (
     <>
     
@@ -35,14 +67,14 @@ const Profile = () => {
             borderRadius={75}
           />
           <Text fontSize={24} color={"black"} fontWeight="bold">
-            Novita Viomaito
+          {profile.nama || "Default Name"}
           </Text>
         </VStack>
 
         <VStack space={2} mt={6}>
-          <InfoBox label="Email " value=": izumiidesu@gmail.com" />
-          <InfoBox label="Tempat/Tanggal Lahir" value=": Jakarta, 01 Januari 2002" />
-          <InfoBox label="No HP" value=": 081234567890" />
+          <InfoBox label="Email " value={`: ${profile.email}`} />
+          <InfoBox label="Tempat/Tanggal Lahir" value={`: ${profile.ttl }`} />
+          <InfoBox label="No HP"  value={`: ${profile.nohp}`} />
         </VStack>
 
         <HStack justifyContent="center" mt={10} space={8}>
@@ -50,7 +82,7 @@ const Profile = () => {
             <ActionText icon="edit" bgColor="#008000">Edit Profile</ActionText>
           </Pressable>
 
-          <Pressable onPress={() => navigation.goBack("Cover")}>
+          <Pressable title={Profile ? "Logout" : "Login"} onPress={() => onSubmit(Profile)}>
             <ActionText icon="sign-out-alt" bgColor="#FF0000">
               Logout
             </ActionText>

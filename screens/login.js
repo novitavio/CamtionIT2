@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useState }  from "react";
 import { Image, Text, Input, Box, Button, View, Center, Pressable, Icon } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+// import { loginUser } from "./actions/AuthAction";
+import { loginUser } from "../actions/AuthAction";
 
-const Form = () => {
-  const [show, setShow] = React.useState(false);
-  const navigation = useNavigation();
-
-  // const handleLogin = () => {
-  //   Perform login logic here
-
-  //   Navigate to the main screen (tab screen) after successful login
-  //   navigation.navigate('Auth', { screen: 'AfterLoginScreen' });
-  // };
-
-  // const handleLogout = () => {r
-  //   // Perform logout logic here
-  //   console.log("Logout clicked");
-
-  //   // Navigate to the login screen after successful logout
-  //   navigation.navigate("Login");
-  // };
+const Login = ({}) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
+    const [show, setShow] = React.useState(false);
+    const navigation = useNavigation();
+  
+    const toggleAlert = (message) => {
+      setShowAlert(!showAlert);
+      setAlertMessage(message);
+    };
+  
+    const login = () => {
+      if (email && password) {
+        loginUser(email, password)
+          .then((user) => {
+            // Pengguna berhasil login, lakukan sesuatu dengan data pengguna jika perlu
+            navigation.replace("Tabs");
+          })
+          .catch((error) => {
+            // Terjadi kesalahan saat login, tampilkan pesan kesalahan
+            console.log("Error", error.message);
+            toggleAlert(error.message);
+          });
+      }
+    };
 
   return (
     <>
@@ -50,15 +61,25 @@ const Form = () => {
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
-              Username 
+              Email 
             </Text>
-            <Input placeholder="Enter your email" borderRadius={"5"} w="100%" borderWidth={1.5} borderColor={"#0E4BBE"} />
+            <Input
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+              placeholder="Enter your email"
+              borderRadius={"5"}
+              w="100%"
+              borderWidth={1.5}
+              borderColor={"#0E4BBE"}
+            />
           </Box>
           <Box mb={"5"}>
             <Text bold={true} fontSize={18} mb={"1"}>
               Password
             </Text>
             <Input
+              onChangeText={(text) => setPassword(text)}
+              value={password}
               borderWidth={1.5}
               borderColor={"#0E4BBE"}
               w={{
@@ -74,7 +95,14 @@ const Form = () => {
             />
           </Box>
           <Center>
-            <Button w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"} onPress={() => navigation.navigate("Home")}>
+          <Button
+              w={"150"}
+              h={"38"}
+              my={"3"}
+              bg={"#0E4BBE"}
+              borderRadius={"5"}
+              onPress={() => login()}
+            >
               <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}  >
                 Login
               </Text>
@@ -93,4 +121,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Login;
