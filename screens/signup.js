@@ -124,7 +124,7 @@ const SignUp = ({  }) => {
             />
           </Box>
           <Center>
-            <Button onPress={() => navigation.navigate("Home")} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
+            <Button onPress={() => onRegister()} w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"}>
               <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}>
                 Sign Up
               </Text>

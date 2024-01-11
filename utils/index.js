@@ -1,2 +1,2 @@
-export * from '../localStorage'
+export * from '../utils/localStorage'
     

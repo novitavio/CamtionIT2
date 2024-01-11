@@ -95,7 +95,14 @@ const Login = ({}) => {
             />
           </Box>
           <Center>
-            <Button w={"150"} h={"38"} my={"3"} bg={"#0E4BBE"} borderRadius={"5"} onPress={() => navigation.navigate("Home")}>
+          <Button
+              w={"150"}
+              h={"38"}
+              my={"3"}
+              bg={"#0E4BBE"}
+              borderRadius={"5"}
+              onPress={() => login()}
+            >
               <Text color={"white"} bold={true} fontSize={14} textAlign={'center'}  >
                 Login
               </Text>
