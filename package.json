@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-native-community/viewpager": "^5.0.11",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
@@ -16,7 +17,9 @@
     "@react-navigation/stack": "^6.3.20",
     "expo": "~49.0.15",
     "expo-font": "~11.4.0",
+    "expo-image-picker": "~14.3.2",
     "expo-status-bar": "~1.6.0",
+    "firebase": "^10.7.1",
     "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-native": "0.72.6",
@@ -30,8 +33,7 @@
     "react-native-svg": "13.9.0",
     "react-native-svg-transformer": "^1.2.0",
     "react-native-tab-view": "^3.5.2",
-    "your-component-library": "^11.0.0",
-    "expo-image-picker": "~14.3.2"
+    "your-component-library": "^11.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
