@@ -17,8 +17,6 @@ const EditProfile = ({ navigation }) => {
   const handleSave = async () => {
     try {
       setLoading(true);
-
-      // Simulate an asynchronous operation (e.g., API request)
       await saveChangesToServer();
 
       console.log("Save Profile successful");
@@ -32,12 +30,6 @@ const EditProfile = ({ navigation }) => {
     }
   };
 
-  // Simulated asynchronous operation (replace with your actual API call)
-  const saveChangesToServer = async () => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, 1000); // Simulate a 1-second delay
-    });
-  };
 
   const showAlert = (title, message) => {
     Alert.alert(title, message);

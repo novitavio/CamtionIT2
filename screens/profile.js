@@ -5,7 +5,6 @@ import { Header } from "../components";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { clearStorage,getData } from "../utils";
 import FIREBASE from "../config/FIREBASE";
-import { getDataUser } from "../actions/AuthAction";
 
 const Profile = () => {
   const navigation = useNavigation();
@@ -14,14 +13,13 @@ const Profile = () => {
     navigation.navigate("EditProfile");
   };
 
+  // Mengambil Data dari AsyncStorage
   const getUserData = () => {
     getData("user").then((res) => {
       const data = res;
       if (data) {
         console.log("isi data", data);
         setProfile(data);
-      } else {
-        // navigation.replace('Login');
       }
     });
   };

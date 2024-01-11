@@ -6,7 +6,6 @@ import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
-
 const JurusanDetail = ({ route }) => {
   const { item } = route.params;
   const navigation = useNavigation();
