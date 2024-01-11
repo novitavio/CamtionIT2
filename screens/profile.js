@@ -42,14 +42,8 @@ const Profile = () => {
           // Sign-out successful.
           clearStorage();
           navigation.navigate("Choose");
-        })
-        .catch((error) => {
-          // An error happened.
-          alert(error);
         });
-    } else {
-      navigation.navigate("Login");
-    }
+    } 
   };
   return (
     <>
