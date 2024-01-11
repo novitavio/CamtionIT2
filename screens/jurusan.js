@@ -34,7 +34,7 @@ const JurusanCard = ({ jurusan }) => {
               {jurusan.nama}
             </Text>
             <Text fontSize={12} lineHeight={16} color="white" numberOfLines={5} textAlign="justify" mr={2} ml={3}>
-              {jurusan.deskripsi}
+              {jurusan.title}
             </Text>
           </VStack>
         </Box>

@@ -28,15 +28,15 @@ const JurusanDetail = ({ route }) => {
             />
             <Card
               bg="#042564"
-              padding={10}  
+              padding={5}  
               borderRadius={15}
               boxShadow={5}
               flex={1}  
             >
-              <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white', marginBottom: 10, textAlign: 'center' }}>
+              <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white', marginBottom: 10, textAlign: 'center', marginLeft:2,}}>
                 {item.nama}
               </Text>
-              <Text style={{ fontSize: 12, color: 'white', marginBottom: 16, textAlign: 'auto', marginRight: 20, }}>
+              <Text style={{ fontSize: 13, color: 'white', marginBottom: 16, textAlign: 'auto', marginRight: 10, marginLeft: 2, }}>
                 {item.deskripsi}
               </Text>
               <TouchableOpacity
@@ -44,7 +44,7 @@ const JurusanDetail = ({ route }) => {
               activeOpacity={0.7}
               style={{ position: 'absolute', bottom: 10, right: 10 }}
             >
-              <Box bg={'white'} padding={3} borderRadius={5}>
+              <Box bg={'white'} padding={2} borderRadius={3} mr={2} ml={2} flex={1}>
                 <Text style={{ color: '#042564', textAlign: 'center' }}>Back</Text>
               </Box>
             </TouchableOpacity>

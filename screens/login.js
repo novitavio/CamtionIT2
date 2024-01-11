@@ -36,7 +36,7 @@ const Login = ({}) => {
   return (
     <>
       <Image
-        source={require("../assets/cover.png")} // Replace with the path to your background image
+        source={require("../assets/cover.png")}
         alt="background"
         position="absolute"
         top={0}
